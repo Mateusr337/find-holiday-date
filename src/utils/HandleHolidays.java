@@ -21,8 +21,11 @@ public class HandleHolidays {
         holidays.forEach(holiday -> Logger.log("name: " + holiday.getName() + ", date: " + holiday.getDate()));
     }
 
-    public void  findHolidayByName (String name) {
+    public void  findHolidayByName () {
+        Logger.log("Insert a holiday name: ");
+        final String name = Input.scan();
         Logger.log("fetching holiday by name: " + name + " ...");
+
         Optional<Holiday> optionalHoliday = holidays
             .stream()
             .filter(holiday -> Objects.equals(holiday.getName(), name))
@@ -31,7 +34,9 @@ public class HandleHolidays {
             validateOptionalHoliday(optionalHoliday);
     }
 
-    public void findHolidayByDate (String date) {
+    public void findHolidayByDate () {
+        Logger.log("Insert a holiday date: ");
+        final String date = Input.scan();
         Logger.log("fetching holiday by date: " + date + " ...");
 
         Optional<Holiday> optionalHoliday = holidays
